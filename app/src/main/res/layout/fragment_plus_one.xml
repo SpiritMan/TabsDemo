@@ -1,12 +1,69 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                >
 
-    <TextView
+    <com.yolocc.tabsdemo.RoundTextView
         android:layout_width="match_parent"
-        android:text="Fragment One"
-        android:textStyle="italic"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_height="match_parent" />
+        android:text="Fragment One"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/btnClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:onClick="click()"
+        android:text="开始动画"/>
+
+    <Button
+        android:id="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:text="动画"/>
+
+    <com.yolocc.tabsdemo.ArcTextView
+        android:id="@+id/arc_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="test"
+        app:arc_backgroundColor="#ff5590"
+        app:arc_borderColor="#00ff00"
+        android:textSize="15sp"
+        android:textColor="#000000"/>
+
+    <com.yolocc.tabsdemo.CircleView
+        android:id="@+id/item_store_status_isopen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="营"
+        android:textColor="@color/white"
+        android:textSize="11sp"/>
+
+
+    <com.yolocc.tabsdemo.CustomView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.yolocc.tabsdemo.PieView
+        android:id="@+id/pie_view"
+        android:layout_width="100dp"
+        android:padding="10dp"
+        android:layout_height="100dp"/>
+
+    <com.yolocc.tabsdemo.RadarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

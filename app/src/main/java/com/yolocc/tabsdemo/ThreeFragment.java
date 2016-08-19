@@ -6,10 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 /**
  */
 public class ThreeFragment extends Fragment {
+
+    private View view;
 
     public ThreeFragment() {
     }
@@ -24,12 +27,19 @@ public class ThreeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         System.out.println("ThreeFragment onCreateView");
-        return inflater.inflate(R.layout.fragment_plus_three,container,false);
+        view = inflater.inflate(R.layout.fragment_plus_three,container,false);
+        return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        WebView webView = (WebView) view.findViewById(R.id.web_view);
+        webView.getSettings().setLoadsImagesAutomatically(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.loadUrl("myapp://jp.app/openwith?name=zhangsan&age=26");
         System.out.println("ThreeFragment onStart");
     }
 
