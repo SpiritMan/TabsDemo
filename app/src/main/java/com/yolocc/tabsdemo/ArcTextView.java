@@ -1,7 +1,6 @@
 package com.yolocc.tabsdemo;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;

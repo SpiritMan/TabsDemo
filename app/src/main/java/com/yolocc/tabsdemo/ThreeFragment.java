@@ -7,12 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 /**
  */
 public class ThreeFragment extends Fragment {
 
     private View view;
+    private ThirdOrderBezier mThirdOrderBezier;
+    private RadioGroup mRadioGroup;
 
     public ThreeFragment() {
     }
@@ -41,6 +45,23 @@ public class ThreeFragment extends Fragment {
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         webView.loadUrl("myapp://jp.app/openwith?name=zhangsan&age=26");
         System.out.println("ThreeFragment onStart");
+
+        mThirdOrderBezier = (ThirdOrderBezier) view.findViewById(R.id.bezier);
+        mRadioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radio_btn_one:
+                        mThirdOrderBezier.setMode(false);
+                        break;
+                    case R.id.radio_btn_two:
+                        mThirdOrderBezier.setMode(true);
+                        break;
+                }
+            }
+        });
+
     }
 
     @Override

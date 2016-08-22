@@ -127,8 +127,9 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new OneFragment(), "ONE");
-        viewPagerAdapter.addFragment(new TwoFragment(), "TWO");
-        viewPagerAdapter.addFragment(new ThreeFragment(), "THREE");
+        viewPagerAdapter.addFragment(new TwoFragment(), "二阶曲线");
+        viewPagerAdapter.addFragment(new ThreeFragment(), "三阶曲线");
+        viewPagerAdapter.addFragment(new FourFragment(), "爱心");
         viewPager.setAdapter(viewPagerAdapter);
     }
 
