@@ -35,6 +35,10 @@ public class LoveView extends View {
         initPaint();
     }
 
+    /**
+     * @param context
+     * @param attrs
+     */
     public LoveView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initPaint();

@@ -9,17 +9,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
-import rx.functions.Action1;
 import rx.functions.Func1;
-import rx.subjects.Subject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,6 +64,26 @@ public class MainActivity extends AppCompatActivity {
         rxJavaMapUse(students);
         rxJavaFlatMapUse(students);
 
+        ViewServer.get(this).addWindow(this);
+
+        Work work = new Work("error","message");
+        HttpResult<Work> workHttpResult = new HttpResult<>();
+        workHttpResult.setData(work);
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        ViewServer.get(this).removeWindow(this);
+    }
+
+    public void onResume() {
+        super.onResume();
+        ViewServer.get(this).setFocusedWindow(this);
     }
 
     private void rxJavaFlatMapUse(List<Student> students) {
